@@ -1,6 +1,8 @@
+package T001_100;
+
 import java.util.HashMap;
 
-class Solution {
+class Solution1 {
     public int[] twoSum(int[] nums, int target) {
         int[] res = new int[2];
         HashMap<Integer, Integer> map = new HashMap<>();
@@ -12,6 +14,8 @@ class Solution {
             }
             map.put(nums[i], i);
         }
+        String str = "";
         return res;
     }
 }
+
