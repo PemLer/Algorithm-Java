@@ -19,7 +19,22 @@ public class Solution24 {
 //        return dummy.next;
 //    }
 
-    // 方法二 双指针修改指向关系
+//    // 方法二 递归
+//    /*
+//    1 -> 2 -> 3 -> 4
+//    1 -> 2    3 <- 4
+//    1    2 <- 3 <- 4
+//    1 <- 2 <- 3 <- 4
+//     */
+//    public ListNode reverseList(ListNode head) {
+//        if (head == null || head.next == null) return head;
+//        ListNode p = reverseList(head.next);
+//        head.next.next = head;
+//        head.next = null;
+//        return p;
+//    }
+
+    // 方法三 双指针修改指向关系
     public ListNode reverseList(ListNode head) {
         if (head == null) return null;
         ListNode pre = null, cur = head;
