@@ -46,6 +46,13 @@ public class Test {
     }
 
     public static void main(String[] args) {
+        Map<String, Integer> map = new HashMap<>();
+        List<Map.Entry<String, Integer>> list = new ArrayList<>();
+
+        Set<Map.Entry<String, Integer>> set = new TreeSet<>(Comparator.comparingInt(Map.Entry::getValue));
+
+
+
         return;
     }
 }
