@@ -4,7 +4,6 @@ import com.elmer.leetcode.common.ListNode;
 import com.elmer.leetcode.common.TreeNode;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Stack;
 

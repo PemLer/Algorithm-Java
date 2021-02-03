@@ -1,17 +1,8 @@
 package com.elmer.leetcode.guide;
 
+import com.elmer.leetcode.common.Node;
+
 import java.util.Scanner;
-
-class Node {
-
-    int val;
-    Node next;
-
-    public Node(int val) {
-        this.val = val;
-    }
-
-}
 
 public class Main_2_2 {
 

@@ -2,7 +2,6 @@ package com.elmer.leetcode.t001_100;
 
 import com.elmer.leetcode.common.ListNode;
 
-import java.util.LinkedList;
 import java.util.PriorityQueue;
 
 public class Solution23 {

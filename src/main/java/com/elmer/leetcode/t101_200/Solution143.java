@@ -2,9 +2,6 @@ package com.elmer.leetcode.t101_200;
 
 import com.elmer.leetcode.common.ListNode;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Solution143 {
     // 空间复杂度要求O(1)
     // 先找到中点，然后翻转后半段，再拼装。

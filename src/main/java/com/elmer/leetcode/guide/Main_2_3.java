@@ -1,6 +1,8 @@
 package com.elmer.leetcode.guide;
 
 
+import com.elmer.leetcode.common.Node;
+
 import java.util.Scanner;
 
 public class Main_2_3 {

@@ -2,9 +2,6 @@ package com.elmer.leetcode.t101_200;
 
 import com.elmer.leetcode.common.ListNode;
 
-import java.util.HashSet;
-import java.util.Set;
-
 public class Solution142 {
 
 //    // 方法一 HashSet
