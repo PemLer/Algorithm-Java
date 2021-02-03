@@ -6,7 +6,7 @@ count = 0
 pkg_path = {}
 for root, pkgs, files in os.walk(path_seed):
     for pkg in pkgs:
-        if (pkg.startswith('t')):
+        if (pkg.startswith('t') or pkg == 'offer' or pkg == 'guide'):
             pkg_path[os.path.join(root, pkg)] = pkg
     if root in pkg_path:
         print(pkg_path[root], len(files))

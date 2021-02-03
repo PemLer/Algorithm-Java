@@ -1,33 +1,31 @@
 package com.elmer.leetcode.guide;
 
 import com.elmer.leetcode.common.Node;
+import static com.elmer.leetcode.common.LinkedListUtil.*;
 
 import java.util.Scanner;
 
-import static com.elmer.leetcode.common.LinkedListUtil.getLinkedList;
-import static com.elmer.leetcode.common.LinkedListUtil.linkedListToString;
-
 public class Main_2_20 {
 
-    public static Node merge(Node p, Node q) {
+    public static Node resign(Node head) {
+        if (head == null || head.next == null) return head;
         Node dummy = new Node(-1), cur = dummy;
-        while (p != null || q != null) {
-            if (p == null) {
-                cur.next = q;
-                break;
-            } else if (q == null) {
-                cur.next = p;
-                break;
-            } else {
-                if (p.val < q.val) {
-                    cur.next = p;
-                    p = p.next;
-                } else {
-                    cur.next = q;
-                    q = q.next;
-                }
-                cur = cur.next;
-            }
+        Node slow = head, fast = head;
+        while (slow != null && fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        Node tmp = slow;
+        while (slow != null && head != tmp) {
+            cur.next = head;
+            cur = cur.next;
+            head = head.next;
+            cur.next = slow;
+            cur = cur.next;
+            slow = slow.next;
+        }
+        if (slow != null) {
+            cur.next = slow;
         }
         return dummy.next;
     }
@@ -35,10 +33,8 @@ public class Main_2_20 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int n = Integer.parseInt(in.nextLine());
-        Node p = getLinkedList(n, in);
-        int m = Integer.parseInt(in.next());
-        Node q = getLinkedList(m, in);
-        Node head = merge(p, q);
+        Node head = getLinkedList(n, in);
+        head = resign(head);
         System.out.println(linkedListToString(head));
     }
 
