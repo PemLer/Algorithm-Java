@@ -1,7 +1,5 @@
 package com.elmer.leetcode.t001_100;
 
-import com.elmer.leetcode.guide.Main_1_8;
-
 import java.util.Stack;
 
 public class Solution85 {

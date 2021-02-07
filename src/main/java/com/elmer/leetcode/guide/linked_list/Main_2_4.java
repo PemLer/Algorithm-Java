@@ -1,4 +1,4 @@
-package com.elmer.leetcode.guide;
+package com.elmer.leetcode.guide.linked_list;
 
 
 import com.elmer.leetcode.common.Node;

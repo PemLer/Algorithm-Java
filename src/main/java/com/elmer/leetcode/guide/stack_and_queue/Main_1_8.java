@@ -1,4 +1,4 @@
-package com.elmer.leetcode.guide.linkedList;
+package com.elmer.leetcode.guide.stack_and_queue;
 
 import java.io.BufferedReader;
 import java.io.IOException;
