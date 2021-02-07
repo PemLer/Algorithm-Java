@@ -1,4 +1,4 @@
-package com.elmer.leetcode.guide;
+package com.elmer.leetcode.guide.linkedList;
 
 import java.util.Deque;
 import java.util.LinkedList;

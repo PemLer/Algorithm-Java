@@ -1,4 +1,4 @@
-package com.elmer.leetcode.guide;
+package com.elmer.leetcode.guide.linkedList;
 
 import java.io.BufferedReader;
 import java.io.IOException;
