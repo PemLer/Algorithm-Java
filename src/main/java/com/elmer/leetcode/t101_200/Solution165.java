@@ -7,10 +7,10 @@ public class Solution165 {
         int l1 = version1.length(), l2 = version2.length();
         int p1 = 0, p2 = 0, val1, val2;
         while (p1 < l1 || p2 < l2) {
-            Pair<Integer, Integer>  pair1 = getNextChunk(version1, l1, p1);
+            Pair<Integer, Integer> pair1 = getNextChunk(version1, l1, p1);
             val1 = pair1.getKey();
             p1 = pair1.getValue();
-            Pair<Integer, Integer>  pair2 = getNextChunk(version2, l2, p2);
+            Pair<Integer, Integer> pair2 = getNextChunk(version2, l2, p2);
             val2 = pair2.getKey();
             p2 = pair2.getValue();
             if (val1 == val2) {
@@ -26,6 +26,6 @@ public class Solution165 {
         while (e < n && version.charAt(e) != '.') {
             e++;
         }
-        return new Pair<>(Integer.parseInt(version.substring(p, e)), e+1);
+        return new Pair<>(Integer.parseInt(version.substring(p, e)), e + 1);
     }
 }
