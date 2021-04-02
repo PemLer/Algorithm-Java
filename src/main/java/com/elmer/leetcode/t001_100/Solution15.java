@@ -4,10 +4,13 @@ import java.util.*;
 
 public class Solution15 {
     public List<List<Integer>> threeSum(int[] nums) {
+        // 先排序
         Arrays.sort(nums);
         List<List<Integer>> res = new ArrayList<>();
         for (int i = 0; i < nums.length; i++) {
-            if (i > 0 && nums[i] == nums[i-1]) continue;
+            // 如果与前一个数相同，则continue
+            if (i > 0 && nums[i] == nums[i - 1]) continue;
+            // 如果大于0，则后面的数都大于0，找不到和为0的组合了
             if (nums[i] > 0) break;
             int left = i + 1, right = nums.length - 1;
             while (left <= right) {
@@ -22,6 +25,7 @@ public class Solution15 {
                     tmp.add(nums[left]);
                     tmp.add(nums[right]);
                     res.add(tmp);
+                    // 避免重复
                     while (left < right && nums[left] == nums[left + 1]) left++;
                     while (left < right && nums[right] == nums[right - 1]) right--;
                     left++;
