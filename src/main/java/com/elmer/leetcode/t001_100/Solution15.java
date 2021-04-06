@@ -20,11 +20,7 @@ public class Solution15 {
                 } else if (total > 0) {
                     right--;
                 } else {
-                    List<Integer> tmp = new ArrayList<>();
-                    tmp.add(nums[i]);
-                    tmp.add(nums[left]);
-                    tmp.add(nums[right]);
-                    res.add(tmp);
+                    res.add(Arrays.asList(nums[i], nums[left], nums[right]));
                     // 避免重复
                     while (left < right && nums[left] == nums[left + 1]) left++;
                     while (left < right && nums[right] == nums[right - 1]) right--;
