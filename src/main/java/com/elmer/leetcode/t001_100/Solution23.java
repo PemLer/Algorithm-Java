@@ -37,35 +37,24 @@ public class Solution23 {
 //        return dummy.next;
 //    }
 
-    // 优先队列
-    class Status implements Comparable<Status> {
-        int val;
-        ListNode node;
-        Status(int val, ListNode node) {
-            this.val = val;
-            this.node = node;
-        }
-
-        public int compareTo(Status status) {
-            return this.val - status.val;
-        }
-    }
-
-    PriorityQueue<Status> queue = new PriorityQueue<>();
+    // 方法二 优先队列
     public ListNode mergeKLists(ListNode[] lists) {
-        ListNode dummy = new ListNode(-1);
-        ListNode cur = dummy;
+        PriorityQueue<ListNode> heap = new PriorityQueue<>((x, y) -> x.val - y.val);
         for (int i = 0; i < lists.length; i++) {
             if (lists[i] != null) {
-                queue.add(new Status(lists[i].val, lists[i]));
+                heap.add(lists[i]);
             }
         }
 
-        while (!queue.isEmpty()) {
-            ListNode node = queue.poll().node;
+        ListNode dummy = new ListNode(-1), cur = dummy, node;
+
+        while (!heap.isEmpty()) {
+            node = heap.poll();
             cur.next = node;
             cur = cur.next;
-            if (node.next != null) queue.add(new Status(node.next.val, node.next));
+            if (node.next != null) {
+                heap.add(node.next);
+            }
         }
         return dummy.next;
     }
