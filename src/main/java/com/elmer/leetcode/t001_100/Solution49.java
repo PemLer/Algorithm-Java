@@ -18,7 +18,7 @@ public class Solution49 {
             StringBuilder builder = new StringBuilder();
             for (char c : chars) {
                 builder.append(c);
-                builder.append("|");
+                builder.append("|");  // 当个数超过10个时，1 0 10 0 和 10 1 0 0
             }
             String key = builder.toString();
             if (map.containsKey(key)) {
