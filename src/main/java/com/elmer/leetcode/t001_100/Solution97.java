@@ -6,8 +6,7 @@ public class Solution97 {
         if (m + n != k) {
             return false;
         }
-        // dp[i][j] = dp[i-1][j]
-        // dp[i][j] = dp[i][j-1]
+
         boolean[] dp = new boolean[n + 1];
         dp[0] = true;
 
