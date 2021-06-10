@@ -10,7 +10,7 @@ public class Solution81 {
             if (nums[mid] == target) {
                 return true;
             }
-            if (nums[mid] == nums[left]) {
+            if (nums[mid] == nums[left]) {  // 因为下面用到了n-1，所以不能用right；如果此处用right，下面判断就要用nums[0]
                 left++;
                 continue;
             }
