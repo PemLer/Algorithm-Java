@@ -14,8 +14,9 @@ public class Solution10 {
                             dp[i][j] = dp[i - 1][j - 1];
                     } else {
                         if (j > 1) {
-                            dp[i][j] = dp[i][j - 2];
+                            dp[i][j] = dp[i][j - 2];  // * 匹配0次，需要去掉 * 前面的字母
                         }
+                        // * 匹配多次，则 x* 还需要复用
                         if (i > 0 && j > 1 && (A.charAt(i - 1) == B.charAt(j - 2) || B.charAt(j - 2) == '.')) {
                             dp[i][j] |= dp[i - 1][j];
                         }

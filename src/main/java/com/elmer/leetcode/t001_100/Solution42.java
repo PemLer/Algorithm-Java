@@ -1,12 +1,13 @@
 package com.elmer.leetcode.t001_100;
 
-import java.util.Stack;
+import java.util.Deque;
+import java.util.LinkedList;
 
 public class Solution42 {
 
     // 方法一 单调栈
     public int trap(int[] height) {
-        Stack<Integer> stack = new Stack<>();
+        Deque<Integer> stack = new LinkedList<>();
         int res = 0;
         for (int cur = 0; cur < height.length; cur++) {
             while (!stack.isEmpty() && height[cur] > height[stack.peek()]) {
@@ -16,7 +17,7 @@ public class Solution42 {
                 int h = Math.min(height[cur], height[stack.peek()]) - height[base];
                 res += distance * h;
             }
-            stack.add(cur);
+            stack.push(cur);
         }
         return res;
     }
