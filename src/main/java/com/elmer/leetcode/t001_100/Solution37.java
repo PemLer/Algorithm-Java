@@ -1,56 +1,59 @@
 package com.elmer.leetcode.t001_100;
 
 public class Solution37 {
+    // 空间换时间，用三个多维数组记录访问记录
     char[][] board;
+    boolean[][] useRow;
+    boolean[][] useCol;
+    boolean[][][] useUnit;
     public void solveSudoku(char[][] board) {
+        useRow = new boolean[9][10];
+        useCol = new boolean[9][10];
+        useUnit = new boolean[3][3][10];
         this.board = board;
-        dfs();
-    }
-
-    private boolean dfs() {
-        for (int x = 0; x < 9; x++) {
-            for (int y = 0; y < 9; y++) {
-                if (board[x][y] == '.') {
-                    for (int k = 1; k <= 9; k++) {
-                        board[x][y] = (char) (k + '0');
-                        if (isValid(x, y) && dfs()) {
-                            return true;
-                        }
-                        board[x][y] = '.';
-                    }
-                    return false;
+        int n = board.length;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                int num = board[i][j] - '0';
+                if (1 <= num && num <= 9) {
+                    useRow[i][num] = true;
+                    useCol[j][num] = true;
+                    useUnit[i/3][j/3][num] = true;
                 }
             }
         }
-        return true;
+        backTrack(0, 0);
     }
 
-    private boolean isValid(int i, int j) {
-        // row
-        char c = board[i][j];
-        board[i][j] = '.';
-        for (int k = 0; k < 9; k++) {
-            if (board[i][k] == c) {
-                return false;
-            }
+    private boolean backTrack(int i, int j) {
+        if (j == 9) {
+            i++;
+            j = 0;
         }
-        // col
-        for (int k = 0; k < 9; k++) {
-            if (board[k][j] == c) {
-                return false;
-            }
+        if (i == 9) {
+            return true;
         }
-        // unit
-        for (int m = 0; m < 3; m++) {
-            for (int n = 0; n < 3; n++) {
-                int x = (i / 3) * 3 + m;
-                int y = (j / 3) * 3 + n;
-                if (board[x][y] == c) {
-                    return false;
+
+        if (board[i][j] == '.') {
+            for (int k = 1; k <= 9; k++) {
+                if (useRow[i][k] || useCol[j][k] || useUnit[i/3][j/3][k]) {
+                    continue;
                 }
+                useRow[i][k] = true;
+                useCol[j][k] = true;
+                useUnit[i/3][j/3][k] = true;
+                board[i][j] = (char) (k + '0');
+                if (backTrack(i, j + 1)) {
+                    return true;
+                }
+                board[i][j] = '.';
+                useRow[i][k] = false;
+                useCol[j][k] = false;
+                useUnit[i/3][j/3][k] = false;
             }
+        } else {
+            return backTrack(i, j + 1);
         }
-        board[i][j] = c;
-        return true;
+        return false;
     }
 }

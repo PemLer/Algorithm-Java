@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Solution51 {
+public class Solution52 {
     boolean[] useCol;
     boolean[] useSlopeLeft;
     boolean[] useSlopeRight;
     int n;
     char[][] grid;
     List<List<String>> res;
-    public List<List<String>> solveNQueens(int n) {
+    public int totalNQueens(int n) {
         /*
             00 01 02 03    3 2 1 0
             10 11 12 13    4 3 2 1
@@ -27,7 +27,7 @@ public class Solution51 {
             Arrays.fill(grid[i], '.');
         }
         dfs(0);
-        return res;
+        return res.size();
     }
 
     private void dfs(int i) {
